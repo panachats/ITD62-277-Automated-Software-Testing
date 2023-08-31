@@ -1,0 +1,328 @@
+{
+	"id": "0525f756-5c37-4a38-9781-98829cbe07e2",
+	"name": "Test AbNormal",
+	"timestamp": "2023-03-07T10:23:21.606Z",
+	"collection_id": "24982305-0bb88510-f84a-4b56-bd2a-11f6eb8e606f",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 8,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-03-07T10:23:20.369Z",
+	"totalFail": 18,
+	"results": [
+		{
+			"id": "8d895390-17aa-4b44-b0e0-3e3833b852e5",
+			"name": "test_getUsers",
+			"url": "http://localhost:3001/getUsers",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is not 200": false,
+				"msg != Get users succesfuly.": false,
+				"Test error = true": false,
+				"Test structure of rasponse data in JSON": false,
+				"Body contains UserID ": false
+			},
+			"testPassFailCounts": {
+				"Status code is not 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"msg != Get users succesfuly.": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test error = true": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test structure of rasponse data in JSON": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body contains UserID ": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is not 200": false,
+					"msg != Get users succesfuly.": false,
+					"Test error = true": false,
+					"Test structure of rasponse data in JSON": false,
+					"Body contains UserID ": false
+				}
+			]
+		},
+		{
+			"id": "f4fa5ca7-195c-48b4-89d8-2175bc5bf375",
+			"name": "test_getUserByID",
+			"url": "http://localhost:3001/getUserByID/",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is not 200": false,
+				"Test msg != Get users succesfuly.": false,
+				"Test error = true": false,
+				"Test Data to array empty": true,
+				"Test data length = 0 {}": true
+			},
+			"testPassFailCounts": {
+				"Status code is not 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test msg != Get users succesfuly.": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test error = true": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test Data to array empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data length = 0 {}": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is not 200": false,
+					"Test msg != Get users succesfuly.": false,
+					"Test error = true": false,
+					"Test Data to array empty": true,
+					"Test data length = 0 {}": true
+				}
+			]
+		},
+		{
+			"id": "e3150135-6ddf-4a74-8f0e-4d14ceaa6528",
+			"name": "test_newuser",
+			"url": "http://localhost:3001/newuser",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is not 200": false,
+				"Test error = true": false,
+				"Test msg = CannotInsert": true,
+				"Test data = undifine": true
+			},
+			"testPassFailCounts": {
+				"Status code is not 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test error = true": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test msg = CannotInsert": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data = undifine": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is not 200": false,
+					"Test error = true": false,
+					"Test msg = CannotInsert": true,
+					"Test data = undifine": true
+				}
+			]
+		},
+		{
+			"id": "35a4fd75-36c2-4b04-b28d-8761bd99673c",
+			"name": "test_checkUsername",
+			"url": "http://localhost:3001/checkUsername",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is not 200": false,
+				"Test error == true": false,
+				"Test msg != CanUse": false,
+				"Test type of data is not str": true,
+				"Test data length = 0 {}": true
+			},
+			"testPassFailCounts": {
+				"Status code is not 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test error == true": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test msg != CanUse": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test type of data is not str": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data length = 0 {}": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is not 200": false,
+					"Test error == true": false,
+					"Test msg != CanUse": false,
+					"Test type of data is not str": true,
+					"Test data length = 0 {}": true
+				}
+			]
+		},
+		{
+			"id": "0ffaf637-7b1b-4eab-bcb4-f92737f913c9",
+			"name": "test_updateuser",
+			"url": "http://localhost:3001/updateuser",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is not 200": false,
+				"affectedRows == 1 changedRows = 1 and info == Rows matched: 1  Changed: 0  Warnings: 0 กรณีมีข้อมูลแต่ไม่ได้เปลี่ยนแปลง": false,
+				"affectedRows == 0 changedRows = 0 and info == Rows matched: Changed: 0  Warnings: 0 กรณีไม่มีข้อมูล": true,
+				"Test error, msg, data of updateduser กรณีมี error": false
+			},
+			"testPassFailCounts": {
+				"Status code is not 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"affectedRows == 1 changedRows = 1 and info == Rows matched: 1  Changed: 0  Warnings: 0 กรณีมีข้อมูลแต่ไม่ได้เปลี่ยนแปลง": {
+					"pass": 0,
+					"fail": 1
+				},
+				"affectedRows == 0 changedRows = 0 and info == Rows matched: Changed: 0  Warnings: 0 กรณีไม่มีข้อมูล": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test error, msg, data of updateduser กรณีมี error": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is not 200": false,
+					"affectedRows == 1 changedRows = 1 and info == Rows matched: 1  Changed: 0  Warnings: 0 กรณีมีข้อมูลแต่ไม่ได้เปลี่ยนแปลง": false,
+					"affectedRows == 0 changedRows = 0 and info == Rows matched: Changed: 0  Warnings: 0 กรณีไม่มีข้อมูล": true,
+					"Test error, msg, data of updateduser กรณีมี error": false
+				}
+			]
+		},
+		{
+			"id": "e1e114ee-436c-4d7c-aeb3-178617ed9c6d",
+			"name": "test_deleteuser",
+			"url": "http://localhost:3001/deleteuser",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is not 200 กรณีเกิด error": false,
+				"Test error, msg of deleteuser กรณีเกิด error": false,
+				"Test affectedRows = 0": true
+			},
+			"testPassFailCounts": {
+				"Status code is not 200 กรณีเกิด error": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test error, msg of deleteuser กรณีเกิด error": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test affectedRows = 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is not 200 กรณีเกิด error": false,
+					"Test error, msg of deleteuser กรณีเกิด error": false,
+					"Test affectedRows = 0": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 29,
+	"collection": {
+		"requests": [
+			{
+				"id": "8d895390-17aa-4b44-b0e0-3e3833b852e5",
+				"method": "GET"
+			},
+			{
+				"id": "f4fa5ca7-195c-48b4-89d8-2175bc5bf375",
+				"method": "POST"
+			},
+			{
+				"id": "e3150135-6ddf-4a74-8f0e-4d14ceaa6528",
+				"method": "POST"
+			},
+			{
+				"id": "35a4fd75-36c2-4b04-b28d-8761bd99673c",
+				"method": "POST"
+			},
+			{
+				"id": "0ffaf637-7b1b-4eab-bcb4-f92737f913c9",
+				"method": "PUT"
+			},
+			{
+				"id": "e1e114ee-436c-4d7c-aeb3-178617ed9c6d",
+				"method": "DELETE"
+			}
+		]
+	}
+}

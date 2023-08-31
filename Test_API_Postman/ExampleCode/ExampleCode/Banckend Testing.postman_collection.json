@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "664ba9d2-4683-493b-b6ce-850fdd9c352c",
+		"name": "Banckend Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test_getUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test structure of rasponse data in JSON\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(false);\r",
+							"    pm.expect(jsonData.msg).to.eql(\"Get users succesfuly.\");\r",
+							"    //pm.expect(jsonData.data.userID).to.eql(1)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains UserID 1, 3 and 4\",() => {\r",
+							"pm.expect(pm.response.text()).to.include('\"userID\":1,');\r",
+							"pm.expect(pm.response.text()).to.include('\"userID\":3');\r",
+							"pm.expect(pm.response.text()).to.include('\"userID\":4,');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/getUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_getUserByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test select userid = 1\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(false);\r",
+							"    pm.expect(jsonData.msg).to.eql(\"Selected\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"UserID 1 fname = Bird\",() => {\r",
+							"pm.expect(pm.response.text()).to.include('fname\":\"Bird\"');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userID\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/getUserByID/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getUserByID",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_newuser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Insert new user\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(false);\r",
+							"    pm.expect(jsonData.msg).to.eql(\"inserted\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"affectedRows = 1\",() => {\r",
+							"pm.expect(pm.response.text()).to.include('affectedRows\":1');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Xbnj\", \r\n    \"password\": \"1234567890\",\r\n    \"firstname\": \"Senaul\", \r\n    \"lastname\": \"Sabai\", \r\n    \"authority\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/newuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"newuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_getUserByID=9",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test select userid = 1\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.error).to.eql(false);\r",
+							"    pm.expect(jsonData.msg).to.eql(\"Selected\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"UserID 9 fname = Senaul\",() => {\r",
+							"pm.expect(pm.response.text()).to.include('fname\":\"Senaul\"');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userID\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/getUserByID/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getUserByID",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "0bb88510-f84a-4b56-bd2a-11f6eb8e606f",
+		"name": "Test AbNormal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24982305"
+	},
+	"item": [
+		{
+			"name": "test_getUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is not 200\", function () {\r",
+							"    pm.response.not.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"msg != Get users succesfuly.\", function () {\r",
+							"    pm.expect(jsonData.msg).to.be.not(\"Get users succesfuly.\");\r",
+							"    //pm.expect(jsonData.data.userID).to.eql(1)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test error = true\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test structure of rasponse data in JSON\", function () {\r",
+							"    pm.expect(jsonData.data).to.undefined\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains UserID \",() => {\r",
+							"    pm.expect(pm.response.text()).to.not.include('\"userID\"');\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Response time is less than 200ms\", () => {\r",
+							"// pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/getUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_getUserByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							" console.log(jsonData)\r",
+							" console.log(jsonData.data)\r",
+							" console.log(Object.keys(jsonData.data).length)\r",
+							"// pm.test(\"jsonData is array\", function () {\r",
+							"//     Array.isArray(jsonData)\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"typeof jsonData.forEach === 'function'\", function () {\r",
+							"//     typeof jsonData.forEach === 'function'\r",
+							"// });\r",
+							"\r",
+							"pm.test(\"Status code is not 200\", function () {\r",
+							"    pm.response.not.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Test msg != Get users succesfuly.\", function () {\r",
+							"    pm.expect(jsonData.msg).to.eql(\"Not have user\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test error = true\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Test Data to array empty\", () => {\r",
+							"    pm.expect(jsonData.data).to.be.eql([])\r",
+							"    // pm.expect(jsonData.data).to.be.oneOf([empty, []])\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Test data length = 0 {}\",() => {\r",
+							"    pm.expect(Object.keys(jsonData.data).length).to.equal(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"// pm.test(\"Test undefined of data\", () => {\r",
+							"//     //ใช้ Object.keys() เพื่อดึง keys ของ property data ของ Object jsonData และวนลูปผ่าน keys\r",
+							"//         Object.keys(jsonData.data[key]).forEach((key) => { \r",
+							"//             //ทดสอบค่าที่ได้จากการเข้าถึง jsonData.data[key] ว่าไม่เป็น undefined\r",
+							"//             pm.expect(jsonData.data[key]).to.not.be.undefined || not.empty;\r",
+							"//             console.log(jsonData.data[key])\r",
+							"//         });\r",
+							"        \r",
+							"//     });\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userID\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/getUserByID/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getUserByID",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_newuser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is not 200\", function () {\r",
+							"    pm.response.not.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test error = true\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test msg = CannotInsert\", function () {\r",
+							"    pm.expect(jsonData.msg).to.eql(\"CannotInsert\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test data = undefined\", function () {\r",
+							"    pm.expect(jsonData.data).to.undefined\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Xbnj\", \r\n    \"password\": \"1234567890\",\r\n    \"firstname\": \"Senaul\", \r\n    \"lastname\": \"Sabai\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/newuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"newuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_checkUsername",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json(); // เก็บ res ไว้ในตัวแปร\r",
+							"console.log(jsonData)\r",
+							"console.log(pm.response.status)\r",
+							"\r",
+							"// การทดสอบสถานการณ์ตอบกลับ\r",
+							"pm.test(\"Status code is not 200\", function () {\r",
+							"    pm.response.to.not.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Parse ข้อมูลเป็น JSON \r",
+							"pm.test(\"Test error == true\", function () {\r",
+							"    pm.expect(jsonData.error).true; // .error คีนฃย์ของข้อมูลที่ import เข้า\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test msg != CanUse\", function () {\r",
+							"    pm.expect(jsonData.msg).to.eql(\"CannotUse\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test type of data is not str\",()=>{\r",
+							"    pm.expect(jsonData.data.username).to.not.a('string')\r",
+							"})\r",
+							"\r",
+							"\r",
+							"pm.test(\"Test data length = 0 {}\",() => {\r",
+							"    pm.expect(Object.keys(jsonData.data).length).to.equal(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/checkUsername",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"checkUsername"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_updateuser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json(); // เก็บ res ไว้ในตัวแปร\r",
+							"console.log(jsonData)\r",
+							"// การทดสอบสถานการณ์ตอบกลับ\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is not 200\", function () {\r",
+							"    pm.response.not.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"affectedRows == 1 changedRows = 1 and info == Rows matched: 1  Changed: 0  Warnings: 0 กรณีมีข้อมูลแต่ไม่ได้เปลี่ยนแปลง\",() => {\r",
+							"    pm.expect(pm.response.text()).to.include('affectedRows\":1');\r",
+							"    pm.expect(pm.response.text()).to.include('info\":\"Rows matched: 1  Changed: 0  Warnings: 0\"');\r",
+							"    pm.expect(pm.response.text()).not.to.include('changedRows\":1');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"affectedRows == 0 changedRows = 0 and info == Rows matched: Changed: 0  Warnings: 0 กรณีไม่มีข้อมูล\",() => {\r",
+							"    pm.expect(pm.response.text()).to.include('affectedRows\":0');\r",
+							"    pm.expect(pm.response.text()).to.include('info\":\"Rows matched: 0  Changed: 0  Warnings: 0\"');\r",
+							"    pm.expect(pm.response.text()).to.include('changedRows\":0');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"//Parse ข้อมูลเป็น JSON \r",
+							"pm.test(\"Test error, msg, data of updateduser กรณีมี error\", function () {\r",
+							"    pm.expect(jsonData.data).undefined;\r",
+							"    pm.expect(jsonData.error).to.eql(true);\r",
+							"    pm.expect(jsonData.msg).not.to.eql(\"updated\") // ตรวจ msg ว่าเป็น CanUse รีเปล่า\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/updateuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"updateuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_deleteuser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json()\r",
+							"\r",
+							" \r",
+							"pm.test(\"Status code is not 200 กรณีเกิด error\", function () {\r",
+							"    pm.response.not.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Test error, msg of deleteuser กรณีเกิด error\",()=>{\r",
+							"    pm.expect(jsonData.error).true;\r",
+							"    pm.expect(jsonData.msg).not.to.be.eql('Deleted')\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Test affectedRows = 0\",()=>{\r",
+							"    pm.expect(pm.response.text()).to.include('affectedRows\":0,')\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/deleteuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"deleteuser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

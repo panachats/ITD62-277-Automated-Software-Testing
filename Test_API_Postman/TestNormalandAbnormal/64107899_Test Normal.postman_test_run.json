@@ -1,0 +1,334 @@
+{
+	"id": "ff489872-514d-402e-a5fa-68fb1a7bab8e",
+	"name": "Test Normal",
+	"timestamp": "2023-03-07T10:22:23.545Z",
+	"collection_id": "24982305-704f33dd-5b9f-44ab-b13b-eb0f3534992e",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 24,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-03-07T10:22:22.750Z",
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "9334c94f-4d24-40fe-93fd-e9397ca6eedb",
+			"name": "test_getUsers",
+			"url": "http://localhost:3001/getUsers",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test error of getUser": true,
+				"Test msg of getUser": true,
+				"Body contains UserID ": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test error of getUser": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test msg of getUser": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains UserID ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test error of getUser": true,
+					"Test msg of getUser": true,
+					"Body contains UserID ": true,
+					"Response time is less than 200ms": true
+				}
+			]
+		},
+		{
+			"id": "751fb3e5-641e-485f-b879-50fcd62676cb",
+			"name": "test_getUserByID",
+			"url": "http://localhost:3001/getUserByID/",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test error = false": true,
+				"Test msg = Selected": false,
+				"UserID = 1 username = Abnormal, fname = Bird, lname = Theerat": true,
+				"Test data length != 0 {}": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test error = false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test msg = Selected": {
+					"pass": 0,
+					"fail": 1
+				},
+				"UserID = 1 username = Abnormal, fname = Bird, lname = Theerat": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data length != 0 {}": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test error = false": true,
+					"Test msg = Selected": false,
+					"UserID = 1 username = Abnormal, fname = Bird, lname = Theerat": true,
+					"Test data length != 0 {}": true
+				}
+			]
+		},
+		{
+			"id": "17ff30b7-29ca-4b17-a559-d070bdb83b22",
+			"name": "test_newuser",
+			"url": "http://localhost:3001/newuser",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 201": false,
+				"Insert new user": true,
+				"affectedRows = 1": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Insert new user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"affectedRows = 1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 201": false,
+					"Insert new user": true,
+					"affectedRows = 1": true
+				}
+			]
+		},
+		{
+			"id": "80949483-0207-4dcd-ad54-9be5cbfeb03a",
+			"name": "test_checkUsername",
+			"url": "http://localhost:3001/checkUsername",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test error of checkUsername": true,
+				"Test msg of checkUsername": false,
+				"Test type of data and not empty or not undefined": true,
+				"Test data length != 0 {}": true,
+				"Body contains string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test error of checkUsername": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test msg of checkUsername": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Test type of data and not empty or not undefined": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data length != 0 {}": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test error of checkUsername": true,
+					"Test msg of checkUsername": false,
+					"Test type of data and not empty or not undefined": true,
+					"Test data length != 0 {}": true,
+					"Body contains string": true
+				}
+			]
+		},
+		{
+			"id": "79a89f72-e578-4d57-8ca9-0efbcf9e6acb",
+			"name": "test_updateuser",
+			"url": "http://localhost:3001/updateuser",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"changedRows = 1 and info == Rows matched: 1  Changed: 1  Warnings: 0": true,
+				"userID = 14": true,
+				"Status code is 200": true,
+				"Test error, msg of updateduser": true
+			},
+			"testPassFailCounts": {
+				"changedRows = 1 and info == Rows matched: 1  Changed: 1  Warnings: 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"userID = 14": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test error, msg of updateduser": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"changedRows = 1 and info == Rows matched: 1  Changed: 1  Warnings: 0": true,
+					"userID = 14": true,
+					"Status code is 200": true,
+					"Test error, msg of updateduser": true
+				}
+			]
+		},
+		{
+			"id": "f0904da3-e75e-4542-a94f-03f798879355",
+			"name": "test_deleteuser",
+			"url": "http://localhost:3001/deleteuser",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"userID = 45": true,
+				"Test error, msg of deleteuser": true,
+				"Test affectedRows = 1": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"userID = 45": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test error, msg of deleteuser": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test affectedRows = 1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"userID = 45": true,
+					"Test error, msg of deleteuser": true,
+					"Test affectedRows = 1": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 25,
+	"collection": {
+		"requests": [
+			{
+				"id": "9334c94f-4d24-40fe-93fd-e9397ca6eedb",
+				"method": "GET"
+			},
+			{
+				"id": "751fb3e5-641e-485f-b879-50fcd62676cb",
+				"method": "POST"
+			},
+			{
+				"id": "17ff30b7-29ca-4b17-a559-d070bdb83b22",
+				"method": "POST"
+			},
+			{
+				"id": "80949483-0207-4dcd-ad54-9be5cbfeb03a",
+				"method": "POST"
+			},
+			{
+				"id": "79a89f72-e578-4d57-8ca9-0efbcf9e6acb",
+				"method": "PUT"
+			},
+			{
+				"id": "f0904da3-e75e-4542-a94f-03f798879355",
+				"method": "DELETE"
+			}
+		]
+	}
+}
